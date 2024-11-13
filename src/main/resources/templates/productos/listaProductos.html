@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BootStrap</title>
+    <!-- Boostrap -->
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+    <!-- Font Awasome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <div class="container-fluid">
+		<header th:insert="~{fragmentos/menu::menu-principal}"></header>
+          <div class="container">
+            <!-- Lista de Productos -->
+            <div class="card mt-1">
+                <div class="card-header">
+                  Lista Productos
+                </div>
+                <div class="card-body">
+                  <a href="#" class="btn btn-primary">Nueva</a>
+                  <hr>
+                  <table class="table table-bordered table-striped table-hover">
+                    <thead class="table-primary">
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Marca</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Operaciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Tesla Model 3</td>
+                        <td>Electrico Sedan</td>
+                        <td>Tesla</td>
+                        <td>$40,240 USD</td>
+                        <td>
+                            <button class="btn btn-outline-primary btn-sm" type="submit">Editar</button>
+                            <button class="btn btn-outline-danger btn-sm" type="submit">Eliminar</button>
+                            <button class="btn btn-outline-success btn-sm" type="submit">Detalles</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Toyota Carolla</td>
+                        <td>Sedán Compacto</td>
+                        <td>Toyota</td>
+                        <td>$23,900 USD</td>
+                        <td>
+                            <button class="btn btn-outline-primary btn-sm" type="submit">Editar</button>
+                            <button class="btn btn-outline-danger btn-sm" type="submit">Eliminar</button>
+                            <button class="btn btn-outline-success btn-sm" type="submit">Detalles</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>Ford F-150</td>
+                        <td>Camioneta Pickup</td>
+                        <td>Ford</td>
+                        <td>$36,570 USD</td>
+                        <td>
+                            <button class="btn btn-outline-primary btn-sm" type="submit">Editar</button>
+                            <button class="btn btn-outline-danger btn-sm" type="submit">Eliminar</button>
+                            <button class="btn btn-outline-success btn-sm" type="submit">Detalles</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="6">Total: 3</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+          </div>
+		  <footer class="footer container text-center text-uppercase py-5" th:insert="~{fragmentos/pie::pie-pagina}"></footer>
+    </div>
+
+    <script src="bootstrap-5.3.3-dist/js/bootstrap.js"></script>
+
+</body>
+</html>

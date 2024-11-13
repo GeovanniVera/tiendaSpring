@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <!-- Boostrap -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <!-- Font Awasome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<body>
+    <!-- Container -->
+    <div class="container-fluid">
+        <header th:insert="~{fragmentos/menu::menu-principal}"></header>
+        <!-- Carousel -->
+        <div id="carousel" class="carousel carousel-dark slide carousel-fade mt-1" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true"
+                    aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <picture>
+                        <source src="img/vietnam.webp" type="image/webp">
+                        <source src="img/vietnam.png" type="image/png">
+                        <img src="img/vietnam.png" alt="imagen" class="d-block w-100" height="800px">
+                    </picture>
+                </div>
+                <div class="carousel-item">
+                    <picture>
+                        <source src="img/austria.webp" type="image/webp">
+                        <source src="img/austria.jpg" type="image/jpeg">
+                        <img src="img/austria.jpg" alt="imagen" class="d-block w-100" height="800px">
+                    </picture>
+                </div>
+                <div class="carousel-item">
+                    <picture>
+                        <source src="img/japan.webp" type="image/webp">
+                        <source src="img/japan.jpg" type="image/jpeg">
+                        <img src="img/japan.jpg" alt="imagen" class="d-block w-100" height="800px">
+                    </picture>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <!-- Carousel End -->
+        <!-- Cards -->
+        <div class="row row-cols-1 row-cols-md-5 g-4 mt-1">
+            <div class="col">
+                <div class="card h-100">
+                    <img src="img/producto-uno.jpg" height="250px" class="card-img-top" alt="..." 
+                    style="background-color: lightblue; padding: 10px; border-radius: 50px; width: 100%;">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary">Comprar &nbsp;</button>
+                        <button class="btn btn-secundary">Detalles</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="img/producto-dos.jpg" height="250px" class="card-img-top" alt="..."
+                        style="padding: 10px; border-radius: 50px; width: 100%;">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary">Comprar &nbsp;</button>
+                        <button class="btn btn-secundary">Detalles</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="img/producto-tres.jpg" height="250px" class="card-img-top" alt="..."
+                        style="padding: 10px; border-radius: 50px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This card has supporting text below as a natural lead-in to additional
+                            content.</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary">Comprar &nbsp;</button>
+                        <button class="btn btn-secundary">Detalles</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="img/producto-cuatro.jpg" height="250px" class="card-img-top" alt="..."
+                        style="padding: 10px; border-radius: 50px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This card has supporting text below as a natural lead-in to additional
+                            content.</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary">Comprar &nbsp;</button>
+                        <button class="btn btn-secundary">Detalles</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="img/producto-5.jpg" height="250px" class="card-img-top" alt="..."
+                        style="padding: 10px; border-radius: 50px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This card has even longer content than the first to show that equal
+                            height action.</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary">Comprar &nbsp;</button>
+                        <button class="btn btn-secundary">Detalles</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Cards End -->
+		<footer class="footer container text-center text-uppercase py-5" th:insert="~{fragmentos/pie::pie-pagina}">
+			
+		</footer>
+    </div>
+    <!-- Container End -->
+    <script src="bootstrap/js/bootstrap.js"></script>
+</body>
+
+</html>
