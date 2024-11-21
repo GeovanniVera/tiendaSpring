@@ -1,6 +1,7 @@
 package com.tienda.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,26 +16,27 @@ public class CategoriasServices implements InCategoriaService {
 	
 	@Override
 	public List<Categorias> obtenerCategoria() {
-		// TODO Auto-generated method stub
 		return repoCategorias.findAll();
 	}
 
 	@Override
-	public void guardar(Categorias Categorias) {
-		// TODO Auto-generated method stub
-
+	public void guardar(Categorias categoria) {
+		repoCategorias.save(categoria);
 	}
 
 	@Override
 	public void eliminar(Integer idCategoria) {
-		// TODO Auto-generated method stub
-
+		repoCategorias.deleteById(idCategoria);
 	}
 
 	@Override
 	public Categorias buscarPorId(Integer idCategoria) {
-		// TODO Auto-generated method stub
-		return null;
+		Categorias categoria = null;
+		Optional<Categorias> optional = repoCategorias.findById(idCategoria);
+		if(optional.isPresent()){
+			categoria = optional.get();
+		}
+		return categoria;
 	}
 
 	@Override

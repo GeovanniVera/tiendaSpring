@@ -15,21 +15,10 @@ public class Categorias {
     private Integer id;
 	private String nombre;
 	private String descripcion;
-	private String imagen;
+	private String imagen = "austria.jpg";
 	private Integer destacado;
 	
-	public Categorias() {
-		
-	}
 	
-	public Categorias(Integer id, String nombre, String descripcion, String imagen, Integer destacado) {
-		super();
-		this.id = id;
-		this.nombre = nombre;
-		this.descripcion = descripcion;
-		this.imagen = imagen;
-		this.destacado = destacado;
-	}
 	public Integer getId() {
 		return id;
 	}

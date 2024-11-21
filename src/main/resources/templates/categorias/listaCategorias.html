@@ -19,11 +19,10 @@
     <!-- Nav Bar -->
     <header th:insert="~{fragmentos/menu::menu-principal}"></header>
     <div class="container my-5">
-      <h5  class="text-uppercase"></h5>
-      <a href="#" class="btn btn-primary my-3">Nueva</a>
-      <div th:if="${categorias.isEmpty()}" th:text="No existen categorias"></div>
+      <h5 class="text-uppercase"></h5>
+      <a th:href="@{/categorias/agregar}" class="btn btn-warning my-3">Nueva</a>
       <table class="table table-bordered table-striped table-hover">
-        <thead class="table-primary">
+        <thead class="table-dark text-light text-uppercase">
           <tr>
             <th scope="col">ID</th>
             <th scope="col">Nombre</th>
@@ -38,14 +37,18 @@
             <th scope="row" th:text="${categoria.id}"></th>
             <td scope="row" th:text="${categoria.nombre}"></td>
             <td scope="row" th:text="${categoria.descripcion}"></td>
-            <td scope="row" >
+            <td scope="row">
               <img th:src="${categoria.imagen}" alt="Imagen de categoría" class="img-fluid" style="max-height: 50px;">
             </td>
             <td scope="row" th:text="${categoria.destacado}"></td>
             <td>
-              <button class="btn btn-outline-primary btn-sm" type="submit">Editar</button>
-              <button class="btn btn-outline-danger btn-sm" type="submit">Eliminar</button>
-              <button class="btn btn-outline-success btn-sm" type="submit">Detalles</button>
+              <a th:href="@{/categorias/buscar(id=${categoria.id})}" class="btn btn-warning btn-sm" type="submit">
+                Editar
+              </a>
+              <a th:href="@{/categorias/eliminar(id=${categoria.id})}" class="btn btn-danger btn-sm" type="submit">
+                Eliminar
+              </a>
+              <button class="btn btn-success btn-sm" type="submit">Detalles</button>
             </td>
           </tr>
           <tr>
