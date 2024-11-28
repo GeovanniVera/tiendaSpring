@@ -39,7 +39,7 @@ public class ProductosController {
 	}
 	
 	@GetMapping("/agregar")
-	public String formularioProductos(Producto producto) {
+	public String agregar(Producto producto) {
 		return "productos/formProductos";
 	}
 
