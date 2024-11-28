@@ -53,12 +53,16 @@ public class CategoriasController {
 	}
 
 	@GetMapping("/buscar")
-	public String getMethodName(@RequestParam("id") int idCategoria) {
+	public String getMethodName(@RequestParam("id") Integer idCategoria, Model model) {
 		//hacer una consulta 
-		Categorias categoria = serviceCategoria.buscarPorId(idCategoria);
+		Categorias categoria = null;
+		if(idCategoria != null){
+			categoria = serviceCategoria.buscarPorId(idCategoria);
+		}
 		//
 		System.out.println(categoria);
-		return new String("redirect:/categorias/agregar");
+		model.addAttribute("categoria", categoria);
+		return new String("categorias/fromUpdateCategorias");
 	}
 	
 	
