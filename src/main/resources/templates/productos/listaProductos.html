@@ -22,13 +22,14 @@
                   Lista Productos
                 </div>
                 <div class="card-body">
-                  <a href="#" class="btn btn-primary">Nueva</a>
+                  <a th:href="@{/productos/agregar}" class="btn btn-primary">Nueva</a>
                   <hr>
                   <table class="table table-bordered table-striped table-hover">
                     <thead class="table-primary">
                       <tr>
                         <th scope="col">#</th>
                         <th scope="col">Nombre</th>
+                        <th scope="col">Descripcion</th>
                         <th scope="col">Categoria</th>
                         <th scope="col">Marca</th>
                         <th scope="col">Precio</th>
@@ -36,16 +37,22 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row"></th>
-                        <td scope="row">Tesla Model 3</td>
-                        <td scope="row">Electrico Sedan</td>
-                        <td scope="row">Tesla</td>
-                        <td scope="row">$40,240 USD</td>
+                      <tr th:each="producto : ${productos}">
+                        <th scope="row" th:text="${producto.id}"></th>
+                        <td scope="row" th:text="${producto.nombre}">Tesla Model 3</td>
+                        <td scope="row" th:text="${producto.descripcion}"></td>
+                        <td scope="row" >Electrico Sedan</td>
+                        <td scope="row" th:text="${producto.marca}">Tesla</td>
+                        <td scope="row" th:text="${producto.precio}">$40,240 USD</td>
                         <td>
-                            <button class="btn btn-outline-primary btn-sm" type="submit">Editar</button>
-                            <button class="btn btn-outline-danger btn-sm" type="submit">Eliminar</button>
-                            <button class="btn btn-outline-success btn-sm" type="submit">Detalles</button>
+                            <a th:href="@{/productos/buscar(id=${producto.id})}" class="btn btn-outline-primary btn-sm" type="submit">Editar</a>
+                            <a th:href="@{/productos/eliminar(id=${producto.id})}" class="btn btn-outline-danger btn-sm" type="submit">Eliminar</a>
+                            <a th:href="@{/productos/buscar(id=${producto.id})}" class="btn btn-outline-success btn-sm" type="submit">Detalles</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="6">
+                          <strong>Total: <span th:text="${total}"></span></strong>
                         </td>
                       </tr>
                     </tbody>

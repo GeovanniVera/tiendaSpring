@@ -21,18 +21,22 @@
         <div class="container text-center mt-5">
             <h2 class="text-center text-uppercase ">Formulario Nuevo Categoria</h2>
 
-            <form class="container text-center my-5" method="post">
-                
+            <form class="container text-center my-5" method="post" th:object="${categoria}">
+                <div class="row">
+                    <div class="col-6"  >
+                        <input type="hidden" th:field="*{id}">        
+                    </div>           
+                </div>
                 <div class="row">
                     <div class="col-6 col-md-6">
                         <input type="text" placeholder="Nombre" class="form-control mt-3" id="text-nombre" name="nombre"
-                            required>
+                            required th:field="*{nombre}">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6 col-md-6"  >
                         <input type="text" placeholder="Descripcion" class="form-control mt-3" name="descripcion"
-                            pattern="^[a-zA-Z\s]+$" required >
+                            pattern="^[a-zA-Z\s]+$" required th:field="*{descripcion}">
                     </div>
                 </div>
                 <div class="row">
@@ -42,7 +46,7 @@
                 </div>
                 <div class="row">
                     <div class="col-6 col-md-6" >
-                        <select class="form-control mt-3" name="destacado" required >
+                        <select class="form-control mt-3" name="destacado" required th:field="*{destacado}">
                             <option value="" disabled selected>--Seleccionar--</option>
                             <option value="0">No Destacado</option>
                             <option value="1">Destacado</option>

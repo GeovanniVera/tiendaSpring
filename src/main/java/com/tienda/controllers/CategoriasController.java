@@ -32,7 +32,7 @@ public class CategoriasController {
 	}
 	
 	@GetMapping("/agregar")
-	public String agregarCategoria() {
+	public String agregarCategoria(Categorias categoria) {
 		return "categorias/formCategorias";
 	}
 
@@ -62,7 +62,7 @@ public class CategoriasController {
 		//
 		System.out.println(categoria);
 		model.addAttribute("categoria", categoria);
-		return new String("categorias/fromUpdateCategorias");
+		return new String("categorias/fromCategorias");
 	}
 	
 	
