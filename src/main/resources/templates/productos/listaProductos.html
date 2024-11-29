@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
 </head>
 <body>
     <div class="container-fluid">
@@ -22,10 +21,11 @@
                   Lista Productos
                 </div>
                 <div class="card-body">
-                  <a th:href="@{/productos/agregar}" class="btn btn-primary">Nueva</a>
+                  <h5 class="text-uppercase"></h5>
+                  <a th:href="@{/productos/agregar}" class="btn btn-warning">Nueva</a>
                   <hr>
-                  <table class="table table-bordered table-striped table-hover">
-                    <thead class="table-primary">
+                  <table class="table table-bordered table-striped table-hover text-center">
+                    <thead class="table-dark">
                       <tr>
                         <th scope="col">#</th>
                         <th scope="col">Nombre</th>
@@ -45,13 +45,13 @@
                         <td scope="row" th:text="${producto.marca}">Tesla</td>
                         <td scope="row" th:text="${producto.precio}">$40,240 USD</td>
                         <td>
-                            <a th:href="@{/productos/buscar(id=${producto.id})}" class="btn btn-outline-primary btn-sm" type="submit">Editar</a>
-                            <a th:href="@{/productos/eliminar(id=${producto.id})}" class="btn btn-outline-danger btn-sm" type="submit">Eliminar</a>
-                            <a th:href="@{/productos/buscar(id=${producto.id})}" class="btn btn-outline-success btn-sm" type="submit">Detalles</a>
+                            <a th:href="@{/productos/buscar(id=${producto.id})}" class="btn  btn-sm btn-primary w-50 my-2 " type="submit">Editar</a>
+                            <a th:href="@{/productos/eliminar(id=${producto.id})}" class="btn btn-sm  btn-danger w-50 my-2 " type="submit">Eliminar</a>
+                            <a th:href="@{/productos/detalles(id=${producto.id})}" class="btn  btn-sm btn-warning w-50 my-2 " type="submit">Detalles</a>
                         </td>
                       </tr>
                       <tr>
-                        <td colspan="6">
+                        <td colspan="7" class="text-start">
                           <strong>Total: <span th:text="${total}"></span></strong>
                         </td>
                       </tr>
@@ -62,8 +62,6 @@
           </div>
 		  <footer class="footer container text-center text-uppercase py-5" th:insert="~{fragmentos/pie::pie-pagina}"></footer>
     </div>
-
     <script src="bootstrap-5.3.3-dist/js/bootstrap.js"></script>
-
 </body>
 </html>

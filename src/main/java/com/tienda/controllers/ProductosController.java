@@ -7,10 +7,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 //import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.tienda.entity.Categoria;
 import com.tienda.entity.Producto;
+import com.tienda.services.InCategoriaService;
 import com.tienda.services.InProductosService;
 
 
@@ -23,7 +26,10 @@ import com.tienda.services.InProductosService;
 @Controller
 public class ProductosController {
 	@Autowired
-	InProductosService seviceProd;
+	private InProductosService seviceProd;
+
+	@Autowired
+	private InCategoriaService serviceCat;
 
 	@GetMapping("/")
 	public String mostrarLista(Model model) {
@@ -33,13 +39,16 @@ public class ProductosController {
 		return "productos/listaProductos";
 	}
 	
-	@GetMapping("/guardar")
-	public String detalleProducto() {
+	@PostMapping("/guardar")
+	public String detalleProducto(Producto producto) {
+		seviceProd.guardarProducto(producto);
 		return "redirect:/productos/";
 	}
 	
 	@GetMapping("/agregar")
-	public String agregar(Producto producto) {
+	public String agregar(Producto producto, Model model) {
+		List<Categoria> categorias = serviceCat.obtenerCategoria();
+		model.addAttribute("categorias", categorias);		
 		return "productos/formProductos";
 	}
 
@@ -60,6 +69,13 @@ public class ProductosController {
 		return new String("redirect:/productos/");
 	}
 	
+	@GetMapping("/detalles")
+	public String detalles(@RequestParam("id") Integer id , Model model) {
+		Producto producto = null;
+		producto = seviceProd.buscarPorId(id);
+		model.addAttribute("producto", producto);
+		return new String("productos/detalles");
+	}
 	
 	
 }

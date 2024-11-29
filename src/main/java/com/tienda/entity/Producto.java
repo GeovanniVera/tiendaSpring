@@ -6,6 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -20,8 +22,19 @@ public class Producto {
     private String marca;
     private String imagen;
     private int codigo;
-    private LocalDate fecha;
+    private LocalDate fecha = LocalDate.now();
     private String detalles;
+
+    @OneToOne
+    @JoinColumn(name="idCategoria")
+    private Categoria categoria;
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
     public String getDetalles() {
         return detalles;
     }
@@ -79,6 +92,7 @@ public class Producto {
     @Override
     public String toString() {
         return "Producto [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", precio=" + precio
-                + ", marca=" + marca + ", imagen=" + imagen + ", codigo=" + codigo + ", fecha=" + fecha + "]";
+                + ", marca=" + marca + ", imagen=" + imagen + ", codigo=" + codigo + ", fecha=" + fecha + ", detalles="
+                + detalles + ", categoria=" + categoria + "]";
     }
 }

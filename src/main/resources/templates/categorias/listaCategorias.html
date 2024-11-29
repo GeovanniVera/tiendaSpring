@@ -19,7 +19,9 @@
     <!-- Nav Bar -->
     <header th:insert="~{fragmentos/menu::menu-principal}"></header>
     <div class="container my-5">
-      <h5 class="text-uppercase"></h5>
+      <div class="card-header text-uppercase" >
+        Lista Categorias
+      </div>
       <a th:href="@{/categorias/agregar}" class="btn btn-warning my-3">Nueva</a>
       <table class="table table-bordered table-striped table-hover">
         <thead class="table-dark text-light text-uppercase">
@@ -40,7 +42,7 @@
             <td scope="row">
               <img th:src="${categoria.imagen}" alt="Imagen de categoría" class="img-fluid" style="max-height: 50px;">
             </td>
-            <td scope="row" th:text="${categoria.destacado}"></td>
+            <td scope="row" th:text="${categoria.destacado == 1 ? 'Destacado' : 'No Destacado'}"></td>
             <td>
               <a th:href="@{/categorias/buscar(id=${categoria.id})}" class="btn btn-warning btn-sm" type="submit">
                 Editar

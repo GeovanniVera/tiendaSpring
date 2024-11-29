@@ -21,7 +21,7 @@
         <div class="container text-center mt-5">
             <h2 class="text-center text-uppercase ">Formulario Nuevo Categoria</h2>
 
-            <form class="container text-center my-5" method="post" th:object="${categoria}">
+            <form class="container text-center my-5" method="post" th:object="${categoria}" th:action="@{/categorias/guardar}">
                 <div class="row">
                     <div class="col-6"  >
                         <input type="hidden" th:field="*{id}">        
@@ -41,7 +41,7 @@
                 </div>
                 <div class="row">
                     <div class="col-6 col-md-6" >
-                        <input type="file" class="form-control mt-3" id="text-nombre" name="archivo">
+                        <input type="file" class="form-control mt-3" id="text-nombre" name="archivo" th:field="*{imagen}">
                     </div>
                 </div>
                 <div class="row">

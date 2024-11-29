@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.tienda.entity.Categorias;
+import com.tienda.entity.Categoria;
 import com.tienda.services.InCategoriaService;
 
 
@@ -24,7 +24,7 @@ public class CategoriasController {
 	
 	@GetMapping("/")
 	public String mostrarLista(Model model) {
-		List<Categorias> lista = serviceCategoria.obtenerCategoria();
+		List<Categoria> lista = serviceCategoria.obtenerCategoria();
 		int total = serviceCategoria.totalCategorias();
         model.addAttribute("categorias", lista);
 		model.addAttribute("totalCategorias", total);
@@ -32,12 +32,13 @@ public class CategoriasController {
 	}
 	
 	@GetMapping("/agregar")
-	public String agregarCategoria(Categorias categoria) {
+	public String agregarCategoria(Categoria categoria) {
+		System.out.println(categoria);
 		return "categorias/formCategorias";
 	}
 
 	@PostMapping("/guardar")
-	public String guardarCategoria(Categorias categoria) {
+	public String guardarCategoria(Categoria categoria) {
 		//Recibir los datos
 		System.out.println(categoria);
 		//utilizamos el objeto de service categorias
@@ -55,14 +56,12 @@ public class CategoriasController {
 	@GetMapping("/buscar")
 	public String getMethodName(@RequestParam("id") Integer idCategoria, Model model) {
 		//hacer una consulta 
-		Categorias categoria = null;
-		if(idCategoria != null){
-			categoria = serviceCategoria.buscarPorId(idCategoria);
-		}
+		Categoria categoria = serviceCategoria.buscarPorId(idCategoria);
+	
 		//
 		System.out.println(categoria);
 		model.addAttribute("categoria", categoria);
-		return new String("categorias/fromCategorias");
+		return new String("categorias/formCategorias");
 	}
 	
 	

@@ -32,7 +32,7 @@
                 <div class="row">
                     <div class="col-12 col-md-4">
                         <input type="text" placeholder="Nombre" class="form-control mt-3" id="text-nombre" name="nombre"
-                            pattern="^[a-zA-Z]\s+$" required th:field="*{nombre}">
+                              th:field="*{nombre}">
                     </div>
                     <div class="col-12 col-md-8">
                         <input type="text" placeholder="Descripcion" class="form-control mt-3" name="descripcion"
@@ -42,44 +42,41 @@
                 <div class="row">
                     <div class="col-12 col-md-4">
                         <select name="categoria" id="categoria" class="form-select mt-3" >
-                            <option value="">---seleccione Categoria---</option>
-                            <option value="Televisiones">Televisiones</option>
-                            <option value="Celulares">Celulares</option>
-                            <option value="Computadoras">Computadoras</option>
-                            <option value="Calzado">Calzado</option>
-                            <option value="Ropa">Ropa</option>
+                            <option value="" disabled selected>---Categoria---</option>
+                            <option th:each="categoria : ${categorias}" th:value="${categoria.id}" th:text="${categoria.nombre}">---seleccione Categoria---</option>
                         </select>
                     </div>
                     <div class="col-12 col-md-4">
                         <select name="marca" id="Marca" class="form-select mt-3" required th:field="*{marca}"> 
                             <option value="">---Seleccione Marca---</option>
-                            <option value="Samsung">Samsung</option>
-                            <option value="Xiaomi">Xiaomi</option>
-                            <option value="Tomy">Tommy</option>
-                            <option value="Polo">Polo</option>
-                            <option value="Sneckers">Sneckers</option>
+                            <option value="Tesla">Tesla</option>
+                            <option value="Ford">Ford</option>
+                            <option value="Chevrolet">Chevrolet</option>
+                            <option value="Nissan">Nissan</option>
                         </select>
                     </div>
                     <div class="col-12 col-md-4">
                         <input type="number" name="precio" placeholder="Precio" min="0" step="0.01"
-                            class="form-control mt-3" pattern="[0-9]" required th:field="*{precio}">
+                            class="form-control mt-3"  required th:field="*{precio}">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12 col-md-4">
-                        <input type="file" class="mt-3 form-control" name="imagen" required th:field="*{imagen}">
+                        <input type="file" class="mt-3 form-control" name="imagen" th:field="*{imagen}">
                     </div>
                     <div class="col-12 col-md-4">
-                        <input type="text" placeholder="Codigo" class="form-control mt-3" name="codigo"
-                            pattern="[0-9]{13}" required th:field="*{codigo}">
+                        <input type="date" name="fecha" id="fecha" th:field="*{fecha}" class="form-control mt-3">
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <input type="text" placeholder="Codigo" class="form-control mt-3" name="codigo" required th:field="*{codigo}">
                     </div>
                 </div>
-                <div class="row">
+                <div class="row my-3">
                     <div class="col-12">
                         <textarea name="detalles" id="detalles" class="form-control mt-3" pattern="^[a-zA-Z]\s+$" required th:field="*{detalles}"></textarea>
                     </div>
                     <div class="col-12 col-md-4">
-                        <input type="submit" class=" mt-3 btn btn-danger form-control">
+                        <input type="submit" class=" mt-3 btn btn-warning form-control">
                     </div>
                 </div>
             </form>
@@ -93,6 +90,14 @@
     </div>
     <!-- Container End -->
     <script src="bootstrap/js/bootstrap.js"></script>
+    <!--<script th:src="@{/tinymce/tinymce.min.js}"></script>
+    <script>
+        tinymce.init({
+            selector: "#detalles",
+            plugins:"textcolor, table lists code",
+            toolbar: "undo redo | bold italic | alignleft aligncenter alignright alignjustify \n\ | bullist numlist outdent indent | forecolor backcolor table code"
+        });
+    </script>-->
 </body>
 
 </html>

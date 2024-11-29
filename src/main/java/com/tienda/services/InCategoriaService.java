@@ -2,13 +2,13 @@ package com.tienda.services;
 
 import java.util.List;
 
-import com.tienda.entity.Categorias;
+import com.tienda.entity.Categoria;
 
 public interface InCategoriaService {
     //Definir las operaciones del crud
-    public List<Categorias> obtenerCategoria();
-    public void guardar(Categorias Categorias);
+    public List<Categoria> obtenerCategoria();
+    public void guardar(Categoria Categorias);
     public void eliminar(Integer idCategoria);
-    public Categorias buscarPorId(Integer idCategoria);
+    public Categoria buscarPorId(Integer idCategoria);
     public int totalCategorias();
 }

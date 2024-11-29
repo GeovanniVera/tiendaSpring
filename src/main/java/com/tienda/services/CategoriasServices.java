@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.tienda.entity.Categorias;
+import com.tienda.entity.Categoria;
 import com.tienda.repository.CategoriasRepository;
 
 @Service
@@ -15,12 +15,12 @@ public class CategoriasServices implements InCategoriaService {
 	private CategoriasRepository repoCategorias;
 	
 	@Override
-	public List<Categorias> obtenerCategoria() {
+	public List<Categoria> obtenerCategoria() {
 		return repoCategorias.findAll();
 	}
 
 	@Override
-	public void guardar(Categorias categoria) {
+	public void guardar(Categoria categoria) {
 		repoCategorias.save(categoria);
 	}
 
@@ -30,9 +30,9 @@ public class CategoriasServices implements InCategoriaService {
 	}
 
 	@Override
-	public Categorias buscarPorId(Integer idCategoria) {
-		Categorias categoria = null;
-		Optional<Categorias> optional = repoCategorias.findById(idCategoria);
+	public Categoria buscarPorId(Integer idCategoria) {
+		Categoria categoria = null;
+		Optional<Categoria> optional = repoCategorias.findById(idCategoria);
 		if(optional.isPresent()){
 			categoria = optional.get();
 		}
